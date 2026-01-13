@@ -514,6 +514,22 @@ nav a:focus {
 @media (max-width: 48rem) {
     .testimonial {
         flex: 0 0 100%;
+        padding: var(--space-md);
+    }
+    
+    .testimonial p {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .quote-mark {
+        width: 2rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .testimonial-author {
+        margin-top: var(--space-sm);
     }
 }
 
