@@ -59,6 +59,7 @@ body {
     color: var(--navy);
     overflow-x: hidden;
     line-height: 1.6;
+    touch-action: pan-y pan-x;
 }
 
 img {
@@ -485,6 +486,7 @@ nav a:focus {
     justify-content: center;
     transition: all 0.3s ease;
     font-family: inherit;
+    touch-action: manipulation;
 }
 
 .carousel-btn:hover,
@@ -897,4 +899,9 @@ footer {
 :focus-visible {
     outline: 0.125rem solid var(--pink);
     outline-offset: 0.125rem;
+}
+
+/* Prevent zoom on button taps */
+button {
+    touch-action: manipulation;
 }
