@@ -446,7 +446,7 @@ nav a:focus {
 .testimonial p {
     font-size: clamp(0.9375rem, 2vw, 1.0625rem);
     line-height: 1.8;
-    margin-bottom: var(--space-md);
+    margin-bottom: 0.25rem;
     opacity: 0.9;
 }
 
