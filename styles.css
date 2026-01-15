@@ -511,6 +511,12 @@ nav a:focus {
 }
 
 /* Responsive testimonial sizing */
+@media (min-width: 48.0625rem) {
+    .testimonial {
+        padding: var(--space-md);
+    }
+}
+
 @media (max-width: 48rem) {
     .testimonial {
         flex: 0 0 100%;
