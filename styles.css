@@ -422,6 +422,7 @@ nav a:focus {
 .testimonial {
     flex: 0 0 calc((100% - var(--space-lg)) / 2);
     padding: var(--space-lg);
+    padding-bottom: var(--space-xs);
     background: var(--navy);
     color: var(--white);
     border-radius: 0.5rem;
@@ -516,6 +517,7 @@ nav a:focus {
 @media (min-width: 48.0625rem) {
     .testimonial {
         padding: var(--space-md);
+        padding-bottom: var(--space-xs);
     }
 }
 
@@ -523,6 +525,7 @@ nav a:focus {
     .testimonial {
         flex: 0 0 100%;
         padding: var(--space-md);
+        padding-bottom: var(--space-xs);
     }
     
     .testimonial p {
@@ -533,7 +536,7 @@ nav a:focus {
     
     .quote-mark {
         width: 2rem;
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-xs);
     }
     
     .testimonial-author {
