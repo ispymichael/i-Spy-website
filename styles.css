@@ -422,7 +422,7 @@ nav a:focus {
 .testimonial {
     flex: 0 0 calc((100% - var(--space-lg)) / 2);
     padding: var(--space-lg);
-    padding-bottom: var(--space-xs);
+    padding-bottom: 0.25rem;
     background: var(--navy);
     color: var(--white);
     border-radius: 0.5rem;
@@ -452,6 +452,7 @@ nav a:focus {
 
 .testimonial-author {
     font-style: normal;
+    margin-bottom: 0;
 }
 
 .testimonial-author strong {
@@ -465,6 +466,8 @@ nav a:focus {
 .testimonial-author span {
     font-size: 0.8125rem;
     opacity: 0.6;
+    line-height: 1.4;
+    display: block;
 }
 
 .carousel-nav {
@@ -517,7 +520,7 @@ nav a:focus {
 @media (min-width: 48.0625rem) {
     .testimonial {
         padding: var(--space-md);
-        padding-bottom: var(--space-xs);
+        padding-bottom: 0.25rem;
     }
 }
 
@@ -525,7 +528,7 @@ nav a:focus {
     .testimonial {
         flex: 0 0 100%;
         padding: var(--space-md);
-        padding-bottom: var(--space-xs);
+        padding-bottom: 0.25rem;
     }
     
     .testimonial p {
