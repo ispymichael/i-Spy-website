@@ -528,7 +528,7 @@ nav a:focus {
     .testimonial p {
         font-size: 0.9375rem;
         line-height: 1.6;
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-xs);
     }
     
     .quote-mark {
@@ -537,7 +537,7 @@ nav a:focus {
     }
     
     .testimonial-author {
-        margin-top: var(--space-sm);
+        margin-top: var(--space-xs);
     }
 }
 
