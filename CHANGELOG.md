@@ -1,5 +1,10 @@
 # i-Spy website changelog
 
+## v0.11.9-z - 2026-07-22
+
+- Replaced only the homepage hero supporting sentence with the final approved wording: “i-Spy helps business leaders and marketing teams define what sets their organisation apart and translate it into a stronger brand and clearer communications.”
+- Preserved all v0.11.9-y design, content, metadata, navigation, functionality and responsive behaviour.
+
 ## v0.11.9-y - 2026-07-22
 
 - Replaced only the homepage hero supporting sentence with the final approved wording: “i-Spy helps business leaders and marketing teams define what sets their organisation apart, then turn it into a stronger brand and clearer communications.”
