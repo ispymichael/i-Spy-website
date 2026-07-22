@@ -50,16 +50,16 @@ function imageMarkup(image, options = {}) {
 
 function header(activeInsights = true) {
   return `<header><div class="container"><div class="header-content">
-<a href="/#hero" class="site-wordmark"><img src="/assets/ispy-logo-header-navy.svg" alt="i-SPY home" width="618" height="179"></a><nav aria-label="Main navigation"><ul>
-<li><a href="/products.html">How We Help</a></li>
-<li><a href="/about.html">About</a></li>
-<li><a href="/testimonials.html">Testimonials</a></li>
-<li><a href="/insights/"${activeInsights ? ' aria-current="page"' : ""}>Insights</a></li>
-<li><a href="/diagnostic.html">Brand Check</a></li>
-<li><a href="/faqs.html">FAQs</a></li>
+<a href="/" class="site-wordmark"><img src="/assets/ispy-logo-header-navy.svg" alt="i-SPY home" width="618" height="179"></a><nav aria-label="Main navigation"><ul>
+<li><a href="/how-we-help">How We Help</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/testimonials">Testimonials</a></li>
+<li><a href="/insights"${activeInsights ? ' aria-current="page"' : ""}>Insights</a></li>
+<li><a href="/brand-check">Brand Check</a></li>
+<li><a href="/faqs">FAQs</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul></nav><button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu"><span class="line line-1"></span><span class="line line-2"></span><span class="line line-3"></span></button>
-</div></div></header><nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="/products.html">How We Help</a><a href="/about.html">About</a><a href="/testimonials.html">Testimonials</a><a href="/insights/"${activeInsights ? ' aria-current="page"' : ""}>Insights</a><a href="/diagnostic.html">Brand Check</a><a href="/faqs.html">FAQs</a><a href="#contact">Contact</a></nav>`;
+</div></div></header><nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="/how-we-help">How We Help</a><a href="/about">About</a><a href="/testimonials">Testimonials</a><a href="/insights"${activeInsights ? ' aria-current="page"' : ""}>Insights</a><a href="/brand-check">Brand Check</a><a href="/faqs">FAQs</a><a href="#contact">Contact</a></nav>`;
 }
 
 function footer() {
@@ -67,8 +67,8 @@ function footer() {
 <div class="footer-tagline-wrapper"><h2 class="footer-tagline">Fancy a chat?</h2></div>
 <a class="download-btn footer-cta" href="mailto:michael@i-spy.uk?subject=Arrange%20a%20call">Arrange a call</a>
 <address class="footer-contact-primary"><a href="tel:+447590410269">+44 (0) 7590 410 269</a><a href="mailto:michael@i-spy.uk">michael@i-spy.uk</a><a href="https://wa.me/447590410269" target="_blank" rel="noopener noreferrer" aria-label="Contact Michael through WhatsApp (opens in a new tab)">WhatsApp</a></address>
-<div class="footer-brand"><a class="site-wordmark site-wordmark--footer" href="/#hero"><img src="/assets/ispy-logo-footer-white.svg" alt="i-Spy home" width="618" height="179"></a></div>
-<div class="footer-meta"><p class="footer-copyright">© i-Spy 2026</p><nav class="footer-legal-nav" aria-label="Policies"><a href="/privacy-notice.html">Privacy notice</a><a href="/sustainability.html">Sustainability</a><a href="/ai-use-policy.html">AI use policy</a></nav></div>
+<div class="footer-brand"><a class="site-wordmark site-wordmark--footer" href="/"><img src="/assets/ispy-logo-footer-white.svg" alt="i-Spy home" width="618" height="179"></a></div>
+<div class="footer-meta"><p class="footer-copyright">© i-Spy 2026</p><nav class="footer-legal-nav" aria-label="Policies"><a href="/privacy-notice">Privacy notice</a><a href="/sustainability">Sustainability</a><a href="/ai-use-policy">AI use policy</a></nav></div>
 <p class="footer-company-disclosure">i-Spy is a trading name of I Spy With My Little Eye Ltd, registered in England and Wales. Company number 16767948.</p>
 </div></div></footer><script src="/shared-chrome.js?v=20260722"></script><script src="/script.js?v=20260722"></script><script src="/insights.js?v=20260722"></script>`;
 }
@@ -132,7 +132,7 @@ function listingPage() {
   return documentShell({
     title: "Insights | i-Spy",
     description: "Observations on brand, business and the world around us.",
-    canonical: `${siteUrl}/insights/`,
+    canonical: `${siteUrl}/insights`,
     jsonLd: `<script type="application/ld+json">${JSON.stringify(itemList)}</script>`,
     body: `${header()}<main><section class="insights-hero"><div class="container"><div class="editorial-width"><h1>Insights</h1><p>Observations on brand, business and the world around us.</p></div></div></section>
 <section class="insights-listing" aria-label="All Insights"><div class="container"><div class="insight-grid">${ordered.map(listingCard).join("\n")}</div></div></section></main>${footer()}`
@@ -215,7 +215,7 @@ function articlePage(article) {
 
   const didYouKnow = `<aside class="did-you-know" aria-labelledby="did-you-know-title"><p class="section-label">A little extra</p><h2 id="did-you-know-title">Did you know?</h2><ol>${article.didYouKnow.map((fact) => `<li>${typeof fact === "string" ? escapeHtml(fact) : fact.html}</li>`).join("")}</ol></aside>`;
   const lightbox = article.images.some((image) => image.enlargeable) ? `<dialog class="image-lightbox" id="imageLightbox" aria-labelledby="imageLightboxTitle"><div class="image-lightbox-panel"><div class="image-lightbox-header"><h2 id="imageLightboxTitle">Enlarged image</h2><button class="image-lightbox-close" type="button" data-lightbox-close>Close</button></div><img src="" alt=""><p class="image-lightbox-caption"></p></div></dialog>` : "";
-  const relatedSection = `<section class="related-insights" aria-labelledby="related-title"><div class="container"><div class="related-heading"><p class="section-label">Continue reading</p><h2 id="related-title">Related Insights</h2></div><div class="related-grid">${related.map(relatedCard).join("")}</div><p class="all-insights-link"><a class="insight-link" href="/insights/">View all Insights</a></p></div></section>`;
+  const relatedSection = `<section class="related-insights" aria-labelledby="related-title"><div class="container"><div class="related-heading"><p class="section-label">Continue reading</p><h2 id="related-title">Related Insights</h2></div><div class="related-grid">${related.map(relatedCard).join("")}</div><p class="all-insights-link"><a class="insight-link" href="/insights">View all Insights</a></p></div></section>`;
 
   return documentShell({
     title: article.metaTitle,
@@ -223,12 +223,12 @@ function articlePage(article) {
     canonical: `${siteUrl}/insights/${article.slug}/`,
     type: "article",
     jsonLd: `<script type="application/ld+json">${JSON.stringify(schema)}</script>`,
-    body: `${header()}<main><article class="article"><header class="article-hero"><div class="container"><div class="article-heading"><a class="article-breadcrumb" href="/insights/">Insights</a><p class="insight-meta"><span>${escapeHtml(article.category)}</span><span>${escapeHtml(article.readingTime)}</span></p><h1 class="${titleClass(article.title, "article-title")}">${escapeHtml(article.title)}</h1><p class="article-intro">${escapeHtml(article.standfirst)}</p></div></div></header><div class="container"><div class="article-body">${article.body.map((block) => renderBodyBlock(article, block)).join("\n")}${didYouKnow}<p class="article-back"><a class="insight-link" href="/insights/">Back to all Insights</a></p></div></div></article>${relatedSection}</main>${lightbox}${footer()}`
+    body: `${header()}<main><article class="article"><header class="article-hero"><div class="container"><div class="article-heading"><a class="article-breadcrumb" href="/insights">Insights</a><p class="insight-meta"><span>${escapeHtml(article.category)}</span><span>${escapeHtml(article.readingTime)}</span></p><h1 class="${titleClass(article.title, "article-title")}">${escapeHtml(article.title)}</h1><p class="article-intro">${escapeHtml(article.standfirst)}</p></div></div></header><div class="container"><div class="article-body">${article.body.map((block) => renderBodyBlock(article, block)).join("\n")}${didYouKnow}<p class="article-back"><a class="insight-link" href="/insights">Back to all Insights</a></p></div></div></article>${relatedSection}</main>${lightbox}${footer()}`
   });
 }
 
 function sitemap() {
-  const pages = ["/", "/products.html", "/about.html", "/testimonials.html", "/insights/", "/diagnostic.html", "/faqs.html", "/brand-faqs.html", "/book.html", "/privacy-notice.html", "/sustainability.html", "/ai-use-policy.html"];
+  const pages = ["/", "/how-we-help", "/about", "/testimonials", "/insights", "/brand-check", "/faqs", "/brand-faqs", "/brand-guide", "/privacy-notice", "/sustainability", "/ai-use-policy"];
   const pageEntries = pages.map((route) => `  <url><loc>${siteUrl}${route}</loc><lastmod>2026-07-22</lastmod></url>`);
   const insightEntries = insights.map((article) => `  <url><loc>${siteUrl}/insights/${article.slug}/</loc><lastmod>${article.modifiedDate}</lastmod></url>`);
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pageEntries, ...insightEntries].join("\n")}\n</urlset>\n`;
@@ -238,7 +238,7 @@ function outputs() {
   const files = new Map();
   const index = listingPage();
   files.set(path.join(root, "insights", "index.html"), index);
-  // Keep the legacy URL working while declaring /insights/ as canonical.
+  // Keep the legacy file available while declaring /insights as canonical.
   files.set(path.join(root, "insights.html"), index);
   insights.forEach((article) => files.set(path.join(root, "insights", article.slug, "index.html"), articlePage(article)));
   files.set(path.join(root, "sitemap.xml"), sitemap());

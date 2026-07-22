@@ -1,5 +1,17 @@
 {
-  "cleanUrls": false,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "trailingSlash": false,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    { "source": "/index", "destination": "/", "permanent": true },
+    { "source": "/products", "destination": "/how-we-help", "permanent": true },
+    { "source": "/diagnostic", "destination": "/brand-check", "permanent": true },
+    { "source": "/book", "destination": "/brand-guide", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/how-we-help", "destination": "/products" },
+    { "source": "/brand-check", "destination": "/diagnostic" },
+    { "source": "/brand-guide", "destination": "/book" }
+  ]
 }

@@ -31,11 +31,10 @@
       const queryIndex = href.indexOf("?");
       const endOfPath = [hashIndex, queryIndex].filter(function (index) { return index >= 0; }).reduce(function (lowest, index) { return Math.min(lowest, index); }, href.length);
       const path = href.slice(0, endOfPath);
-      if (path && !/\.html$/i.test(path)) return;
 
       const target = new URL(href, window.location.href);
       target.searchParams.set("header", "wordmark");
-      const relativePath = path || window.location.pathname.split("/").pop() || "index.html";
+      const relativePath = path || window.location.pathname || "/";
       link.setAttribute("href", relativePath + "?" + target.searchParams.toString() + target.hash);
     });
   }

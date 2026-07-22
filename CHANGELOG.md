@@ -1,5 +1,16 @@
 # i-Spy website changelog
 
+## v0.11.9-s - 2026-07-22
+
+### Clean public URLs
+
+- Replaced user-facing `.html` links with short, descriptive page addresses.
+- Kept the homepage at `/` and removed `index.html#hero` from home links.
+- Introduced `/how-we-help`, `/brand-check` and `/brand-guide` as the descriptive service, diagnostic and guide routes.
+- Updated canonical URLs, generated Insights navigation and the sitemap.
+- Added permanent redirects and internal rewrites so existing bookmarks and search links continue to work.
+- Preserved all approved copy, design, page structure, interactions and responsive behaviour.
+
 ## v0.11.9-r - 2026-07-22
 
 ### Homepage hero and Insights interaction refinement

@@ -97,9 +97,13 @@ insights.forEach((article) => {
 });
 
 const sitemap = read("sitemap.xml");
-check(sitemap.includes('/privacy-notice.html'), "sitemap preserves the Privacy notice");
-check(sitemap.includes('/sustainability.html'), "sitemap preserves Sustainability");
-check(sitemap.includes('/ai-use-policy.html'), "sitemap preserves the AI use policy");
+check(sitemap.includes('/privacy-notice'), "sitemap preserves the clean Privacy notice URL");
+check(sitemap.includes('/sustainability'), "sitemap preserves the clean Sustainability URL");
+check(sitemap.includes('/ai-use-policy'), "sitemap preserves the clean AI use policy URL");
+check(sitemap.includes('/how-we-help'), "sitemap contains the descriptive How We Help URL");
+check(sitemap.includes('/brand-check'), "sitemap contains the descriptive Brand Check URL");
+check(sitemap.includes('/brand-guide'), "sitemap contains the descriptive brand guide URL");
+check(!sitemap.match(/<loc>[^<]*\.html<\/loc>/), "sitemap contains no legacy HTML page URLs");
 insights.forEach((article) => {
   check(sitemap.includes(`/insights/${article.slug}/`), `sitemap contains ${article.slug}`);
   check(sitemap.includes(`<lastmod>${article.modifiedDate}</lastmod>`), `sitemap uses the current technical batch date for ${article.slug}`);
