@@ -1,0 +1,10 @@
+{
+  "name": "i-spy-website",
+  "private": true,
+  "scripts": {
+    "lint": "node --check content/insights.js && node --check scripts/build-insights.js && node --check scripts/test-insights.js && node --check insights.js && node --check script.js",
+    "build": "node scripts/build-insights.js --check",
+    "build:insights": "node scripts/build-insights.js",
+    "test": "node scripts/test-insights.js"
+  }
+}

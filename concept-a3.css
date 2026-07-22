@@ -1,0 +1,113 @@
+@import url("concept-a2.css");
+
+/* Concept A.3: Distinctive Refinement, v0.11.3-a. */
+:root {
+  --magenta-accessible: #B00062;
+  --header-height: 5rem;
+  --interaction-speed: 180ms;
+}
+
+html { scroll-padding-top: calc(var(--header-height) + 1rem); }
+
+/* Let the root element contain horizontal overflow so sticky positioning remains viewport-bound. */
+body { overflow-x: visible; }
+
+:where(main [id], footer[id]) {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* Compact, solid sticky navigation with a quiet scrolled state. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: var(--header-height);
+  background: var(--white);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    border-color var(--interaction-speed) ease,
+    box-shadow var(--interaction-speed) ease;
+}
+
+header.scrolled {
+  border-bottom-color: rgba(10, 25, 41, 0.14);
+  box-shadow: 0 0.3rem 1rem rgba(10, 25, 41, 0.045);
+}
+
+header .header-content { min-height: var(--header-height); }
+
+header nav a,
+.mobile-menu a,
+.footer-nav a,
+.contact-details a,
+main a:not(.button):not(.download-btn) {
+  transition:
+    color var(--interaction-speed) ease,
+    text-decoration-color var(--interaction-speed) ease,
+    text-decoration-thickness var(--interaction-speed) ease;
+}
+
+header nav a::after { transition-duration: var(--interaction-speed); }
+
+.site-wordmark:focus-visible,
+.hamburger:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 4px;
+}
+
+/* Observation cue one: the approved orb sits inside one fine viewing ring. */
+.hero-dot {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 0.625rem var(--navy),
+    0 0 0 calc(0.625rem + 1px) rgba(255, 255, 255, 0.34);
+}
+
+/* Observation cue two: a restrained circular marker replaces the generic rule. */
+main .section-label::before {
+  width: 0.58rem;
+  height: 0.58rem;
+  border: 1px solid var(--pink);
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Keep the clean approved footer wordmark quiet and unembellished. */
+.site-wordmark--footer::before,
+.site-wordmark--footer::after { content: none; }
+
+.site-wordmark--footer img { filter: none; }
+
+@media (max-width: 48rem) {
+  :root { --header-height: 4.5rem; }
+
+  header,
+  header .header-content { min-height: var(--header-height); }
+
+  header .site-wordmark img { width: 6.4rem; }
+  .mobile-menu { padding-top: calc(var(--header-height) + 1.5rem); }
+
+  .hero-dot {
+    box-shadow:
+      0 0 0 0.48rem var(--navy),
+      0 0 0 calc(0.48rem + 1px) rgba(255, 255, 255, 0.34);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header,
+  header nav a::after,
+  header nav a,
+  .mobile-menu a,
+  .footer-nav a,
+  .contact-details a,
+  main a:not(.button):not(.download-btn) {
+    transition: none !important;
+  }
+
+  .hero-dot {
+    transform: none !important;
+    will-change: auto;
+  }
+}

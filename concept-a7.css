@@ -1,0 +1,71 @@
+@import url("concept-a6.css");
+
+/* Concept A.7: Final Brand Asset and Policy Pass, v0.11.7-a. */
+
+/* The approved live-site orb is always shown as one unchanged square image. */
+.hero-dot,
+header .site-wordmark--orb-mode .header-orb {
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+  filter: none;
+  clip-path: none;
+  -webkit-mask: none;
+  mask: none;
+}
+
+.services-more {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.footer-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.35rem;
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.footer-legal-nav a {
+  color: var(--white);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-decoration-line: underline;
+  text-decoration-color: var(--pink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.24rem;
+}
+
+.footer-legal-nav a:hover,
+.footer-legal-nav a:focus {
+  color: var(--white);
+  text-decoration-thickness: 2px;
+}
+
+.footer-company-disclosure {
+  max-width: 50rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 450;
+  line-height: 1.6;
+}
+
+@media (max-width: 48rem) {
+  .services-more { margin-top: 2rem; }
+  .footer-legal-nav { gap: 0.7rem 1rem; }
+  .footer-legal-nav a,
+  .footer-company-disclosure { font-size: 0.875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dot,
+  header .site-wordmark--orb-mode .header-orb {
+    transform: none !important;
+    transition: none !important;
+  }
+}

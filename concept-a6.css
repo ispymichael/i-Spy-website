@@ -1,0 +1,78 @@
+@import url("concept-a5.css");
+
+/* Concept A.6: Refined Motion and Visual Detail, v0.11.6-a. */
+:root {
+  --brand-transition-progress: 0;
+  --orb-angle: 0deg;
+  --dark-divider-magenta: rgba(255, 31, 164, 0.32);
+}
+
+/* Opacity and scale are linked directly to scroll position, not a timed state. */
+header .site-wordmark--orb-mode .header-asset { transition: none; }
+
+header .site-wordmark--orb-mode .header-wordmark-wrapper {
+  opacity: calc(1 - var(--brand-transition-progress));
+  transform: translateY(-50%) scale(var(--wordmark-scale, 1));
+}
+
+header .site-wordmark--orb-mode .header-orb-wrapper {
+  opacity: var(--brand-transition-progress);
+  transform: translateY(-50%) scale(var(--orb-scale, 0.99));
+}
+
+body.header-changing .hero-dot { display: none; }
+body.header-changing .hero-dot + .hero-descriptor { margin-top: 0; }
+
+/* Controlled wrapping support without forced line breaks. */
+:where(main, footer) :where(h1, h2, h3),
+.faq-item summary,
+.question-title { text-wrap: balance; }
+
+:where(main, footer) p,
+.faq-item p,
+.testimonial blockquote p,
+.testimonial-card blockquote p { text-wrap: pretty; }
+
+/* One restrained bespoke icon family for Diagnose, Define and Deliver. */
+.method-icon {
+  display: block;
+  width: clamp(1.75rem, 2.5vw, 2.25rem);
+  height: auto;
+  margin: 0 0 1.15rem;
+}
+
+/* Quiet branded dividers only within the dark service rows. */
+.offer-summary-card { border-top-color: var(--dark-divider-magenta); }
+.offer-summary-card:last-of-type { border-bottom-color: var(--dark-divider-magenta); }
+
+/* Reduce the combined pause before Brand experience by roughly one third. */
+.services-section { padding-bottom: clamp(3.25rem, 6vw, 5.5rem); }
+.partners-section { padding-top: clamp(2.25rem, 4vw, 3.75rem); }
+
+/* Quotation marks remain present but subordinate to the words. */
+.testimonials-section .quote-mark {
+  width: clamp(2.25rem, 3vw, 2.875rem);
+  margin-bottom: clamp(0.75rem, 1.4vw, 1rem);
+}
+
+.testimonial-card > .quote-mark {
+  width: 1.375rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 48rem) {
+  .method-icon { width: clamp(1.625rem, 8vw, 2rem); margin-bottom: 1rem; }
+  .testimonials-section .quote-mark { width: clamp(1.875rem, 9vw, 2.375rem); margin-bottom: 0.75rem; }
+  .testimonial-card > .quote-mark { width: 1.25rem; margin-bottom: 0.65rem; }
+  .services-section { padding-bottom: 3.25rem; }
+  .partners-section { padding-top: 2.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header .site-wordmark--orb-mode .header-asset {
+    transform: translateY(-50%) scale(1) !important;
+    transition: none !important;
+  }
+
+  header .site-wordmark--orb-mode .header-orb { transform: rotate(0deg) !important; }
+}

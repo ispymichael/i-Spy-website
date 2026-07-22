@@ -1,0 +1,8 @@
+.DS_Store
+.vercel/
+node_modules/
+*.zip
+lighthouse-reports/
+lighthouse-reports-*/
+design-reviews/
+

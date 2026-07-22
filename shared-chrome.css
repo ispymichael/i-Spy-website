@@ -1,0 +1,10 @@
+.site-wordmark { color: var(--navy); font-size: 1.7rem; font-weight: 700; letter-spacing: -.05em; text-decoration: none; }.site-wordmark span { color: var(--pink); }.site-wordmark--footer { color: var(--white); font-size: clamp(2rem, 5vw, 3.5rem); }
+.footer-nav { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin: 1.5rem 0 2rem; }
+.footer-nav a { color: var(--white); text-underline-offset: .25rem; }
+@media (max-width: 62rem) {
+  .mobile-menu { justify-content: flex-start; overflow-y: auto; padding: 6rem 1.5rem 2rem; }
+}
+@media (max-width: 48rem) {
+  .download-btn { max-width: 100%; white-space: normal; }
+  .footer-nav { gap: .75rem 1rem; }
+}

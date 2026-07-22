@@ -1,0 +1,482 @@
+/* Concept One: final polish refinement layer, v0.11.8-c. */
+
+/* Desktop footer: semantic source order is preserved while the CTA and wordmark
+   form a deliberate right-hand visual column. */
+.footer-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem);
+  grid-template-areas:
+    "tagline cta"
+    "contact brand"
+    "metadata brand"
+    "company brand";
+  column-gap: clamp(3rem, 8vw, 8rem);
+  row-gap: 0;
+}
+
+.footer-tagline-wrapper {
+  grid-area: tagline;
+  align-self: start;
+  max-width: 37.5rem;
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.footer-tagline {
+  margin: 0;
+}
+
+.footer-cta {
+  grid-area: cta;
+  align-self: start;
+  justify-self: end;
+}
+
+.footer-contact-primary {
+  grid-area: contact;
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.footer-meta {
+  grid-area: metadata;
+}
+
+.footer-company-disclosure {
+  grid-area: company;
+  margin: 0;
+}
+
+.footer-brand {
+  grid-area: brand;
+  align-self: end;
+  justify-self: end;
+  margin: 0;
+  padding-top: 2rem;
+}
+
+.footer-brand .site-wordmark--footer {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.footer-brand .site-wordmark--footer img {
+  width: clamp(9rem, 15vw, 12.5rem);
+  height: auto;
+}
+
+/* The added marks retain their original artwork. Scale compensation addresses
+   only source-canvas whitespace and differing visible mass. */
+.partner-logo--badrutts { --logo-optical-scale: 1.18; }
+.partner-logo--howden { --logo-optical-scale: 1.1; }
+.partner-logo--nesta { --logo-optical-scale: 1.08; }
+.partner-logo--thch { --logo-optical-scale: 1.08; }
+.partner-logo--nbid { --logo-optical-scale: 1.18; }
+
+/* Increase the artwork caps by approximately 17% without altering the fixed
+   logo-slot height, padding, grid gap or section spacing. */
+.partner-logo {
+  --logo-max-width: 9.35rem;
+  --logo-max-height: 3.2rem;
+}
+
+.partner-logo--ucas {
+  --logo-max-width: 5.85rem;
+}
+
+@media (max-width: 62rem) {
+  .footer-content {
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 14rem);
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+@media (max-width: 48rem) {
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-tagline-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-cta {
+    align-self: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-contact-primary {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.25rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .partner-logo img,
+  .partner-logo--wide img {
+    max-width: min(var(--logo-max-width), 7.6rem);
+    max-height: min(var(--logo-max-height), 2.625rem);
+  }
+
+  .footer-meta {
+    margin-bottom: 0.9rem;
+  }
+
+  .footer-brand {
+    align-self: flex-end;
+    margin-top: 1.75rem;
+    padding-top: 0;
+  }
+
+  .footer-brand .site-wordmark--footer img {
+    width: clamp(8.5rem, 38vw, 10.5rem);
+  }
+}
+
+/* v0.11.9-a: selected navy-led direction.
+   On the homepage only, Working with i-Spy adopts Concept Two's approved
+   light treatment while Brand experience remains navy. */
+#services.services-section {
+  background: #F7F6F4;
+  color: var(--navy);
+}
+
+#services .services-title,
+#services .offer-summary-card h3 {
+  color: var(--navy);
+}
+
+#services .services-introduction,
+#services .offer-summary-card p {
+  color: rgba(10, 25, 41, 0.82);
+}
+
+#services .section-label {
+  color: var(--pink);
+}
+
+#services .offer-summary-card,
+#services .offer-summary-card:last-of-type {
+  border-color: rgba(255, 31, 164, 0.45);
+}
+
+#services .services-more .download-btn {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+#services .services-more .download-btn:hover,
+#services .services-more .download-btn:focus {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: var(--navy);
+}
+
+/* Slightly quieter contact typography; the approved 44px target remains. */
+.footer-contact-primary a {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+@media (max-width: 40rem) {
+  .partner-grid .partner-logo:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - clamp(1rem, 2.5vw, 2rem)) / 2);
+  }
+}
+
+@media (max-width: 28rem) {
+  .footer-cta {
+    width: 100%;
+  }
+
+  .footer-legal-nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem 1rem;
+  }
+}
+
+/* v0.11.8-d: move the contact group towards the upper divider while keeping
+   the legal information and wordmark anchored in their approved lower slots. */
+@media (min-width: 48.0625rem) {
+  footer#contact {
+    padding-top: clamp(3rem, 4vw, 4rem);
+  }
+
+  .footer-content {
+    min-height: clamp(16.75rem, 20vw, 18rem);
+    grid-template-areas:
+      "tagline cta"
+      "contact brand"
+      ". brand"
+      "metadata brand"
+      "company brand";
+    grid-template-rows: auto auto 1fr auto auto;
+  }
+
+  .footer-tagline-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-contact-primary {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 48rem) {
+  footer#contact {
+    padding-top: 3rem;
+  }
+
+  .footer-content {
+    min-height: 0;
+  }
+
+  .footer-cta {
+    margin-bottom: 1rem;
+  }
+
+  .footer-contact-primary {
+    margin-bottom: 3.5rem;
+  }
+
+  .footer-contact-primary a,
+  .footer-legal-nav a,
+  .footer-brand .site-wordmark--footer {
+    min-height: 44px;
+  }
+}
+
+/* v0.11.9-c: twelve logos produce complete rows at every approved breakpoint. */
+.partner-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.partner-grid .partner-logo:last-child {
+  grid-column: auto;
+  justify-self: stretch;
+  width: auto;
+}
+
+@media (max-width: 63.999rem) {
+  .partner-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 37.499rem) {
+  .partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1rem, 4vw, 1.5rem);
+    row-gap: 1rem;
+  }
+}
+
+/* v0.11.9-i: retain a deliberate two-line hero statement above the mobile
+   breakpoint while allowing natural wrapping on narrow screens. */
+@media (min-width: 48.0625rem) {
+  .hero h1 {
+    max-width: 18ch;
+  }
+
+  .hero-heading-line {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+/* Keep the mobile testimonial link clear of the final testimonial divider. */
+@media (max-width: 48rem) {
+  .testimonials-grid > p:last-child {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Mobile footer follows one semantic and visual sequence:
+   contact, wordmark, statutory links, company disclosure. */
+@media (max-width: 48rem) {
+  .footer-contact-primary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-contact-primary a {
+    width: fit-content;
+    min-height: 44px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-self: stretch;
+    justify-content: flex-end;
+    margin: 0 0 1.75rem;
+    padding-top: 0;
+  }
+
+  .footer-brand .site-wordmark--footer {
+    min-height: 44px;
+  }
+
+  .footer-brand .site-wordmark--footer img {
+    width: 10rem;
+  }
+
+  .footer-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .footer-legal-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 1rem;
+  }
+
+  .footer-legal-nav a {
+    min-height: 44px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .footer-company-disclosure {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.78125rem;
+    line-height: 1.55;
+  }
+}
+
+/* v0.11.9-d: align the wordmark to the left on phone-sized screens only.
+   The existing tablet and desktop placement remains unchanged. */
+@media (max-width: 37.499rem) {
+  .footer-brand {
+    justify-content: flex-start;
+    margin-top: 0.75rem;
+  }
+
+  .footer-brand .site-wordmark--footer {
+    justify-content: flex-start;
+  }
+}
+
+/* v0.11.9-e: optical logo normalisation.
+   These values balance visible artwork rather than source-canvas dimensions. */
+.partner-logo--cr {
+  --logo-optical-scale: 1.62;
+}
+
+.partner-logo--ucas {
+  --logo-optical-scale: 0.96;
+  --logo-max-width: 4.25rem;
+}
+
+.partner-logo--bentley {
+  --logo-optical-scale: 1.33;
+}
+
+.partner-logo--ids {
+  --logo-optical-scale: 1.22;
+}
+
+.partner-logo--o2 {
+  --logo-optical-scale: 0.85;
+}
+
+.partner-logo--shell {
+  --logo-optical-scale: 0.96;
+}
+
+.partner-logo--voda {
+  --logo-optical-scale: 1.12;
+}
+
+.partner-logo--gatwick {
+  --logo-optical-scale: 1.26;
+}
+
+.partner-logo--pwc {
+  --logo-optical-scale: 1.12;
+}
+
+.partner-logo--howden {
+  --logo-optical-scale: 1.1;
+}
+
+.partner-logo--nesta {
+  --logo-optical-scale: 1.08;
+}
+
+.partner-logo--nbid {
+  --logo-optical-scale: 1.24;
+}
+
+/* v0.11.9-f: real-device phone calibration.
+   These overrides correct perceived size on narrow, high-density screens only;
+   tablet and desktop optical sizing remains unchanged. */
+@media (max-width: 37.499rem) {
+  .partner-logo--cr {
+    --logo-optical-scale: 1.54;
+  }
+
+  .partner-logo--ucas {
+    --logo-optical-scale: 0.96;
+    --logo-max-width: 3.5rem;
+  }
+
+  .partner-logo--bentley {
+    --logo-optical-scale: 1.4;
+  }
+
+  .partner-logo--ids {
+    --logo-optical-scale: 1.22;
+  }
+
+  .partner-logo--o2 {
+    --logo-optical-scale: 0.68;
+  }
+
+  .partner-logo--shell {
+    --logo-optical-scale: 0.77;
+  }
+
+  .partner-logo--voda {
+    --logo-optical-scale: 1.12;
+  }
+
+  .partner-logo--gatwick {
+    --logo-optical-scale: 1.26;
+  }
+
+  .partner-logo--pwc {
+    --logo-optical-scale: 1.18;
+  }
+
+  .partner-logo--howden {
+    --logo-optical-scale: 1.1;
+  }
+
+  .partner-logo--nesta {
+    --logo-optical-scale: 1.13;
+  }
+
+  .partner-logo--nbid {
+    --logo-optical-scale: 1.24;
+  }
+}
+
+/* v0.11.9-l: keep the statutory company disclosure readable but visually quiet. */
+.footer-company-disclosure {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}

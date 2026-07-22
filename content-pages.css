@@ -1,0 +1,30 @@
+.content-page { padding-top: 5rem; }
+.content-hero { padding: var(--space-3xl) 0; background: var(--navy); color: var(--white); }
+.content-hero .section-label { color: var(--pink); }
+.content-hero h1 { margin: 0 0 var(--space-lg); font-size: clamp(2.8rem, 8vw, 6rem); line-height: 1.02; letter-spacing: -.02em; }
+.content-hero p:not(.section-label) { max-width: 44rem; font-size: clamp(1.15rem, 2.6vw, 1.5rem); line-height: 1.45; }
+.content-hero p:not(.section-label) + p { margin-top: var(--space-sm); }
+.content-sections { padding: var(--space-3xl) 0; }
+.content-sections article { padding: var(--space-xl) 0; border-top: 1px solid rgba(10,25,41,.2); }
+.content-sections h2 { margin: 0 0 var(--space-md); font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; }
+.content-sections p, .content-sections li { max-width: 44rem; font-size: 1.1rem; line-height: 1.65; }
+.content-sections ul { margin: 0; padding-left: 1.25rem; }
+.about-page-portrait { width: 100%; max-width: 30rem; aspect-ratio: 3 / 4; margin: 0 auto var(--space-xl); overflow: hidden; background: var(--navy); }
+.about-page-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 59%; }
+.about-page .content-sections article { padding-block: clamp(2.75rem, 5vw, 4.5rem); }
+.about-page .content-sections h2 { margin: 0 0 clamp(1.25rem, 2vw, 1.75rem); }
+.about-page .content-sections p { margin: 0; max-width: 44rem; }
+.about-page .content-sections p + p { margin-top: 1rem; }
+.content-cta { margin: var(--space-xl) 0; padding: clamp(1.5rem, 4vw, 3rem); background: #f7f6f4; border-top: .35rem solid var(--pink); }
+.book-page-intro { display: grid; grid-template-columns: minmax(14rem, .75fr) minmax(0, 1.25fr); gap: var(--space-xl); align-items: center; padding-bottom: var(--space-xl); }
+.book-cover { margin: 0; padding: var(--space-lg); background: var(--pink); border-radius: .5rem; }
+.book-cover img { display: block; width: 100%; height: auto; }
+.book-editorial-copy { padding: 0 !important; border-top: 0 !important; }
+.book-editorial-copy p { margin-bottom: var(--space-md); }
+.book-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: var(--space-lg); }
+@media (max-width: 48rem) { .content-page { padding-top: 4.5rem; } .content-hero, .content-sections { padding: var(--space-2xl) 0; } .content-cta .download-btn { display: inline-block; max-width: 100%; white-space: normal; } .book-page-intro { grid-template-columns: 1fr; } }
+@media (max-width: 48rem) {
+  .about-page .content-sections article { padding-block: 2.5rem; }
+  .about-page .content-sections h2 { margin-bottom: 1.25rem; }
+  .about-page .content-sections p + p { margin-top: .9rem; }
+}

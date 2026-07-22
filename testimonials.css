@@ -1,0 +1,16 @@
+.testimonials-page { padding-top: 5rem; }
+.testimonials-hero { padding: var(--space-3xl) 0; background: var(--navy); color: var(--white); }
+.testimonials-hero .section-label { color: var(--pink); }
+.testimonials-hero h1 { margin: 0 0 var(--space-lg); font-size: clamp(3rem, 8vw, 6rem); line-height: 1.02; }
+.testimonials-hero p { max-width: 44rem; font-size: clamp(1.1rem, 2.4vw, 1.4rem); line-height: 1.5; }
+.testimonials-library { padding: var(--space-3xl) 0; }
+.testimonials-library h2 { margin: var(--space-2xl) 0 var(--space-lg); font-size: clamp(2rem, 4vw, 3.2rem); }
+.testimonials-library h2:first-child { margin-top: 0; }
+.testimonial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); }
+.testimonial-card { padding: clamp(1.5rem, 4vw, 2.5rem); background: #f7f6f4; border-top: .35rem solid var(--pink); }
+.testimonial-card blockquote { margin: 0; }
+.testimonial-card blockquote p { font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.55; }
+.testimonial-author { margin-top: var(--space-lg); line-height: 1.45; }
+.testimonials-cta { margin-top: var(--space-3xl); padding: clamp(1.5rem, 4vw, 3rem); background: var(--navy); color: var(--white); }
+.testimonials-cta h2 { margin: 0 0 var(--space-md); }
+@media (max-width: 48rem) { .testimonials-page { padding-top: 4.5rem; } .testimonials-hero, .testimonials-library { padding: var(--space-2xl) 0; } .testimonial-grid { grid-template-columns: 1fr; } }

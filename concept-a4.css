@@ -1,0 +1,442 @@
+@import url("concept-a.css");
+
+/* Concept A.4: Controlled Correction and Header Comparison, v0.11.4-a. */
+:root {
+  --magenta-accessible: #A80068;
+  --title-space: clamp(5.5rem, 9vw, 8rem);
+  --testimonial-name: #D0007F;
+  --header-height: 5rem;
+  --header-transition: 220ms;
+}
+
+html { scroll-padding-top: calc(var(--header-height) + 1rem); }
+
+/* Keep sticky positioning viewport-bound without introducing visible overflow. */
+body { overflow-x: visible; }
+
+:where(main [id], footer[id]) {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* Compact, solid sticky navigation with a quiet scrolled distinction. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: var(--header-height);
+  background: var(--white);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    border-color var(--header-transition) ease,
+    box-shadow var(--header-transition) ease;
+}
+
+header.scrolled {
+  border-bottom-color: rgba(10, 25, 41, 0.14);
+  box-shadow: 0 0.3rem 1rem rgba(10, 25, 41, 0.045);
+}
+
+header .header-content { min-height: var(--header-height); }
+
+header nav a,
+.mobile-menu a,
+.footer-nav a,
+.contact-details a,
+main a:not(.button):not(.download-btn) {
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease,
+    text-decoration-thickness 180ms ease;
+}
+
+.site-wordmark:focus-visible,
+.hamburger:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 4px;
+}
+
+/* The optional comparison keeps both marks inside the existing brand-link footprint. */
+header .site-wordmark--orb-mode {
+  position: relative;
+  width: 7.25rem;
+  height: 2.11rem;
+}
+
+header .site-wordmark--orb-mode .header-wordmark,
+header .site-wordmark--orb-mode .header-orb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  transition: opacity var(--header-transition) ease;
+}
+
+header .site-wordmark--orb-mode .header-wordmark {
+  width: 7.25rem;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+header .site-wordmark--orb-mode .header-orb {
+  width: 2.11rem;
+  height: 2.11rem;
+  transform: translateY(-50%) rotate(var(--header-orb-rotation, 0deg));
+  opacity: 0;
+  pointer-events: none;
+}
+
+header .site-wordmark--orb-mode.is-orb-visible .header-wordmark { opacity: 0; }
+header .site-wordmark--orb-mode.is-orb-visible .header-orb { opacity: 1; }
+
+body.header-orb-review .hero-dot { display: none; }
+body.header-orb-review .hero-dot + .hero-descriptor { margin-top: 0; }
+
+.hero-descriptor {
+  max-width: 48rem;
+  margin: 0 0 clamp(1.3rem, 2.4vw, 1.8rem);
+  color: var(--pink);
+  font-family: var(--font-body);
+  font-size: clamp(0.82rem, 1.25vw, 0.98rem);
+  font-weight: 590;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+}
+
+.hero-dot + .hero-descriptor {
+  margin-top: calc(-1 * clamp(0.35rem, 0.7vw, 0.55rem));
+}
+
+.services-introduction {
+  max-width: 48rem;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1.02rem, 1.65vw, 1.18rem);
+  line-height: 1.62;
+}
+
+.partners-label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--navy);
+}
+
+.partners-label::before {
+  width: 1.5rem;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--pink);
+  content: "";
+}
+
+/* Reintroduced original brand punctuation, kept subordinate to the quotation. */
+.testimonials-section .quote-mark {
+  display: block;
+  width: clamp(3rem, 5vw, 4rem);
+  height: auto;
+  margin: 0 0 clamp(1rem, 2vw, 1.4rem);
+}
+
+.testimonial-card > .quote-mark {
+  display: block;
+  width: clamp(1.5rem, 2.2vw, 2rem);
+  height: auto;
+  margin: 0 0 1rem;
+}
+
+.site-wordmark--footer img { filter: none; }
+
+.content-page,
+.insights-page,
+.faqs-page,
+.quiz-page,
+.products-page,
+.testimonials-page { padding-top: 0; }
+
+/* Links remain navy and recognisable on light backgrounds. */
+main a:not(.button):not(.download-btn) {
+  color: var(--navy);
+  text-decoration-color: var(--pink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
+}
+main a:not(.button):not(.download-btn):hover,
+main a:not(.button):not(.download-btn):focus { color: var(--navy); text-decoration-thickness: 2px; }
+.services-section a.insight-link { color: var(--white); }
+.article-hero a { color: var(--white); }
+
+/* One quiet section-label system. */
+main .section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--navy);
+}
+main .section-label::before {
+  width: 1.5rem;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--pink);
+  content: "";
+}
+.services-section .section-label,
+.content-hero .section-label,
+.faq-hero .section-label,
+.article-hero .section-label { color: var(--pink); }
+.services-section .section-label::before,
+.content-hero .section-label::before,
+.faq-hero .section-label::before,
+.article-hero .section-label::before { display: none; }
+.partners-label { color: var(--pink); }
+.products-list article > .section-label {
+  display: block;
+  color: var(--pink);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.products-list article > .section-label::before { display: none; }
+
+/* One secondary-page title system. */
+.content-hero,
+.insights-hero,
+.faq-hero,
+.products-hero,
+.testimonials-hero,
+.article-hero {
+  padding: var(--title-space) 0;
+  background: var(--navy);
+  color: var(--white);
+}
+.content-hero h1,
+.insights-hero h1,
+.faq-hero h1,
+.products-hero h1,
+.testimonials-hero h1,
+.article-hero h1,
+.quiz-intro-title {
+  max-width: none;
+  margin: 0 0 2rem;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.3vw, 4.75rem);
+  font-weight: 560;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+}
+.content-hero p:not(.section-label),
+.insights-hero p:last-child,
+.faq-hero p:last-child,
+.products-hero p,
+.testimonials-hero p,
+.article-intro {
+  max-width: 58ch;
+  font-family: var(--font-body);
+  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
+  line-height: 1.58;
+}
+.article { padding: 0; }
+.article-heading { max-width: 61rem; margin: 0; }
+.article-content { padding: var(--space-section) 0; }
+.article-body { max-width: 46rem; }
+.article-body h2 { font-family: var(--font-display); font-weight: 560; }
+
+/* Homepage: identity first, proposition before action. */
+.hero {
+  min-height: clamp(39rem, 76vh, 47rem);
+  padding: clamp(6.5rem, 11vw, 9rem) 0;
+}
+.hero .container { position: static; }
+.hero-dot {
+  position: static;
+  display: block;
+  width: clamp(3.5rem, 4.4vw, 4rem);
+  height: auto;
+  margin: 0 0 clamp(1.8rem, 3vw, 2.5rem);
+  pointer-events: none;
+  transform-origin: center;
+  user-select: none;
+  will-change: transform;
+}
+.hero h1 { margin-bottom: clamp(1.4rem, 3vw, 2.25rem); }
+.hero-subtitle { margin-bottom: 0; }
+
+.about-profile-layout { align-items: start; }
+.about-content-inner p { max-width: 62ch; }
+
+.book-content {
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  border: 0;
+}
+.book-text { padding: 0; }
+.book-image { min-height: 24rem; border: 0; background: var(--white); }
+
+/* Testimonials remain readable as the library grows. */
+@media (min-width: 48.01rem) {
+  .testimonials-hero h1 { max-width: none; white-space: nowrap; }
+  .testimonial-grid > .testimonial-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    padding-inline: clamp(2rem, 6vw, 5rem);
+    border-right: 0;
+  }
+  .testimonial-grid > .testimonial-card:last-child:nth-child(odd) blockquote,
+  .testimonial-grid > .testimonial-card:last-child:nth-child(odd) .testimonial-author {
+    width: min(100%, 48rem);
+    margin-inline: auto;
+  }
+}
+.testimonial-author strong {
+  color: var(--magenta-accessible);
+  font-weight: 650;
+}
+.testimonial-author { color: rgba(10, 25, 41, 0.76); }
+
+/* Supporting pages use the same restrained editorial language. */
+.insight-card {
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  background: transparent;
+  border-top: 1px solid var(--line);
+}
+.insight-card h2 a,
+.insight-card h3 a { color: var(--navy); text-decoration: none; }
+.insight-card h2 a:hover,
+.insight-card h3 a:hover { color: var(--navy); text-decoration: underline; text-decoration-color: var(--pink); }
+.faq-crosslink,
+.content-cta { border-top: 1px solid var(--line); }
+.book-cover { padding: clamp(1.5rem, 4vw, 3rem); background: var(--paper); border-radius: 0; }
+
+/* Brand Check opening, questions and result share the same system. */
+.quiz-page { background: var(--white); }
+.quiz-shell { width: 100%; padding: 0; }
+.quiz-card {
+  width: min(calc(100% - (2 * var(--container-padding))), 70rem);
+  min-height: 0;
+  margin: clamp(3rem, 7vw, 6rem) auto;
+  padding: clamp(2rem, 6vw, 5rem);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: none;
+}
+.quiz-card--intro {
+  width: 100%;
+  min-height: clamp(36rem, 69vh, 44rem);
+  margin: 0;
+  padding: var(--title-space) max(var(--container-padding), calc((100vw - var(--container-max)) / 2 + var(--container-padding)));
+  justify-content: center;
+  background: var(--navy);
+  border: 0;
+  color: var(--white);
+}
+.quiz-intro-title span { display: block; }
+.quiz-card .quiz-intro-title {
+  max-width: none;
+  font-size: clamp(3rem, 5.3vw, 4.75rem);
+  line-height: 0.96;
+}
+.quiz-card--intro > p:not(.time-note) { max-width: 58ch; font-size: clamp(1.08rem, 1.8vw, 1.28rem); }
+.quiz-card--intro .button--primary { background: var(--white); border-color: var(--white); color: var(--navy); }
+.quiz-card--intro .button--primary:hover,
+.quiz-card--intro .button--primary:focus { background: var(--pink); border-color: var(--pink); }
+
+.quiz-card--result {
+  gap: 0;
+  max-width: 70rem;
+  background: var(--white);
+  border: 0;
+}
+.quiz-card--result h1 { max-width: 16ch; margin: 0 0 1.5rem; font-weight: 560; }
+.result-label,
+.secondary-insight .eyebrow { color: var(--magenta-accessible); }
+.result-summary { max-width: 52rem; font-size: clamp(1.18rem, 2vw, 1.42rem) !important; line-height: 1.55 !important; }
+.result-recommendation { max-width: 52rem; margin-top: clamp(2rem, 5vw, 3.5rem); }
+.result-recommendation h2,
+.secondary-insight h2,
+.result-contact h2 { margin: 0 0 0.8rem; font-family: var(--font-display); font-weight: 560; }
+.result-recommendation p,
+.secondary-insight p,
+.diagnosis-distinction { max-width: 52rem; }
+.result-divider { width: 100%; margin: clamp(2.5rem, 6vw, 4.5rem) 0; border: 0; border-top: 1px solid var(--pink); }
+.secondary-insight { max-width: 52rem; }
+.diagnosis-distinction { margin-top: 2rem !important; color: rgba(10, 25, 41, 0.72); font-weight: 500; }
+.result-contact { margin-top: clamp(3rem, 7vw, 5rem); padding: clamp(2rem, 5vw, 3.5rem); background: var(--paper); }
+.result-contact-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+.result-review-link {
+  padding: 0.4rem 0;
+  background: transparent;
+  border: 0;
+  color: var(--navy);
+  font: inherit;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: var(--pink);
+  text-underline-offset: 0.28em;
+  cursor: pointer;
+}
+.result-review-link:hover { text-decoration-thickness: 2px; }
+.result-review-link:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+.answer-option:has(input:checked) { border-color: var(--pink); background: rgba(255, 31, 164, 0.08); }
+
+@media (max-width: 48rem) {
+  :root { --header-height: 4.5rem; }
+
+  header,
+  header .header-content { min-height: var(--header-height); }
+
+  header .site-wordmark--orb-mode {
+    width: 6.65rem;
+    height: 1.93rem;
+  }
+
+  header .site-wordmark--orb-mode .header-wordmark { width: 6.65rem; }
+  header .site-wordmark--orb-mode .header-orb { width: 1.93rem; height: 1.93rem; }
+  .mobile-menu { padding-top: calc(var(--header-height) + 1.5rem); }
+
+  .content-hero,
+  .insights-hero,
+  .faq-hero,
+  .products-hero,
+  .testimonials-hero,
+  .article-hero { padding: clamp(4rem, 15vw, 6rem) 0; }
+  .hero { min-height: 0; padding: 6.5rem 0; }
+  .hero-dot { width: clamp(2.625rem, 12vw, 3rem); margin-bottom: 1.6rem; }
+  .hero-descriptor { max-width: 21rem; margin-bottom: 1.2rem; font-size: 0.8rem; }
+  .hero-dot + .hero-descriptor { margin-top: -0.25rem; }
+  .services-introduction { margin-bottom: 2.5rem; }
+  .testimonials-section .quote-mark { width: clamp(2.25rem, 10vw, 2.75rem); }
+  .testimonial-card > .quote-mark { width: 1.65rem; }
+  .book-content { gap: 2rem; }
+  .book-image { min-height: 18rem; border: 0; }
+  .testimonial-grid > .testimonial-card:last-child:nth-child(odd) blockquote,
+  .testimonial-grid > .testimonial-card:last-child:nth-child(odd) .testimonial-author { width: auto; margin-inline: 0; }
+  .quiz-card { width: calc(100% - 2rem); margin: 2rem auto; padding: 1.5rem; }
+  .quiz-card--intro { width: 100%; min-height: 36rem; margin: 0; padding: 5rem var(--container-padding); }
+  .result-contact-actions { align-items: stretch; flex-direction: column; }
+}
+
+@media (max-width: 28rem) {
+  .quiz-intro-title span { display: inline; }
+  .quiz-intro-title span:first-child::after { content: " "; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header,
+  header nav a::after,
+  header nav a,
+  .mobile-menu a,
+  .footer-nav a,
+  .contact-details a,
+  main a:not(.button):not(.download-btn),
+  header .site-wordmark--orb-mode .header-wordmark,
+  header .site-wordmark--orb-mode .header-orb {
+    transition-duration: 1ms !important;
+  }
+
+  .hero-dot { transform: none !important; will-change: auto; }
+  header .site-wordmark--orb-mode .header-orb {
+    transform: translateY(-50%) !important;
+  }
+}
+
+/* Final component colour override follows the inherited A.2 component rules. */
+.testimonial-author strong { color: var(--testimonial-name); }

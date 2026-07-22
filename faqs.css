@@ -1,0 +1,25 @@
+.faqs-page { padding-top: 5rem; }
+.faq-hero, .faq-section { padding: var(--space-3xl) 0; }
+.faq-hero { background: var(--navy); color: var(--white); }
+.faq-hero h1 { margin-bottom: var(--space-md); font-size: clamp(3rem, 9vw, 6rem); line-height: .95; letter-spacing: -.05em; }
+.faq-hero .section-label { color: var(--pink); }
+.faq-hero p:last-child { max-width: 39rem; font-size: clamp(1.15rem, 2.5vw, 1.5rem); line-height: 1.35; }
+.faq-section--tint { background: #f7f6f4; }
+.faq-section h2 { margin-bottom: var(--space-xl); font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.05; letter-spacing: -.04em; }
+.faq-list { border-top: 1px solid rgba(10, 25, 41, .25); }
+.faq-item { border-bottom: 1px solid rgba(10, 25, 41, .25); }
+.faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 0; color: var(--navy); cursor: pointer; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; line-height: 1.2; list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; color: var(--pink); font-size: 1.75rem; font-weight: 400; line-height: 1; }
+.faq-item[open] summary::after { content: '–'; }
+.faq-item summary:focus-visible { outline: 3px solid var(--pink); outline-offset: .25rem; }
+.faq-item > div { max-width: 43rem; padding: 0 0 1.5rem; }
+.faq-item p { margin: 0 0 1rem; font-size: clamp(1rem, 1.8vw, 1.1rem); line-height: 1.6; }
+.faq-item p:last-child { margin-bottom: 0; }
+.footer-wordmark { color: var(--white); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -.08em; text-decoration: none; }
+.footer-wordmark span { color: var(--pink); }
+.linkedin-icon { align-items: center; justify-content: center; width: 3rem; height: 3rem; background: var(--white); color: var(--navy); font-weight: 700; text-align: center; line-height: 3rem; text-decoration: none; }
+@media (max-width: 48rem) { .faqs-page { padding-top: 4.5rem; } .faq-hero, .faq-section { padding: var(--space-2xl) 0; } }
+.faq-crosslink { margin-top: var(--space-2xl); padding: clamp(1.5rem, 4vw, 2.5rem); background: #f7f6f4; border-top: .35rem solid var(--pink); }
+.faq-crosslink h2 { margin: 0 0 var(--space-md); font-size: clamp(1.8rem, 4vw, 2.7rem); }
+.faq-crosslink p { max-width: 43rem; line-height: 1.6; }
