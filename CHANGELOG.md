@@ -1,5 +1,10 @@
 # i-Spy website changelog
 
+## v0.11.9-aa - 2026-07-22
+
+- Applied a restrained `-0.04em` optical left correction to the homepage hero headline so the visible “Define” and “Bring” letterforms align with the descriptor and supporting copy.
+- Kept the shared container, headline width, line breaks, typography, copy and all other page alignment unchanged.
+
 ## v0.11.9-z - 2026-07-22
 
 - Replaced only the homepage hero supporting sentence with the final approved wording: “i-Spy helps business leaders and marketing teams define what sets their organisation apart and translate it into a stronger brand and clearer communications.”

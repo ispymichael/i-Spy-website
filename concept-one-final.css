@@ -176,6 +176,7 @@ header nav a[aria-current="page"]::after { transform: scaleX(1); }
 .hero h1 {
   max-width: 11ch;
   margin: 0 0 clamp(1.4rem, 3vw, 2.25rem);
+  margin-left: -0.04em;
   font-size: clamp(3rem, 5.3vw, 4.75rem);
   font-weight: 570;
   letter-spacing: -0.025em;
