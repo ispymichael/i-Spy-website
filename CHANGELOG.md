@@ -1,5 +1,56 @@
 # i-Spy website changelog
 
+## v0.11.9-x - 2026-07-22
+
+- Completed the deferred Brand experience logo substitution using Michael’s approved `srm_logo.jpg` artwork.
+- Prepared a faithful transparent white PNG from the supplied flat red-background source without redrawing, retyping or stretching the logo.
+- Replaced Nesta in its existing grid position with Sir Robert McAlpine and added accurate alt text.
+- Added optical scale values of `0.92` for tablet and desktop and `0.88` for phone-sized screens, without changing the logo slot, grid or section layout.
+- Retained `logos/nesta.svg` in the archive while removing Nesta from the visible homepage grid.
+- Confirmed exactly 12 visible logos, no clipping or overflow, and balanced rendering at 1440px, 1280px, 1024px, 768px, 430px, 390px and 375px.
+- Preserved all v0.11.9-w typography, FAQ spacing, Back to top controls, copy, metadata and functionality.
+
+## v0.11.9-w - 2026-07-22
+
+- Removed the duplicate Insights-specific hero title and supporting-copy typography so the Insights index now inherits the approved secondary-page header system.
+- Corrected the Brand FAQs “Try the Brand Check” exclusion zone with controlled paragraph margins and responsive spacing above and below the button.
+- Added a semantic, keyboard-accessible “Back to top ↑” footer utility across every public page and updated the reusable Insights generator and regression checks.
+- Searched the supplied website archives and Michael’s original client-logo archive for the approved Sir Robert McAlpine artwork. No matching asset was present, so the requested Nesta substitution was deliberately not made and no unapproved replacement was introduced. Nesta remains visible in the 12-logo grid pending the approved file.
+- Tested the protected review at 1440px, 1280px, 1024px, 768px, 430px, 390px and 375px. The public production website was not changed.
+
+## v0.11.9-v - 2026-07-22
+
+- Increased the mobile spacing above and below the Brand FAQs “Try the Brand Check” button to 24px so it reads as a distinct call to action rather than sitting within the surrounding text.
+- Corrected the mobile Diagnose icon’s optical alignment with the Define and Deliver icons using the actual visible artwork bounds.
+- Relaxed the kerning of “your” within the homepage hero headline without altering the rest of the approved headline typography or line-breaking behaviour.
+- Preserved all v0.11.9-u copy, Search Console preparation, page structure, navigation, interactions and responsive behaviour.
+- Prepared a protected review deployment only. The public production website remains unchanged.
+
+## v0.11.9-u - 2026-07-22
+
+### Mobile spacing, icon alignment and homepage copy
+
+- Replaced the homepage hero supporting paragraph with the approved shorter business-leader wording.
+- Added restrained mobile spacing above and below the Brand Check button in the Brand FAQs crosslink panel.
+- Nudged the compact Diagnose icon two pixels left on mobile so its visible artwork aligns optically with Define and Deliver.
+- Preserved the v0.11.9-t Search Console metadata, Norwich sentence, structured data, sitemap, documentation and private preparation materials.
+- Made no changes to desktop layout, navigation, service copy, Brand Check behaviour, imagery or public production.
+
+## v0.11.9-t - 2026-07-22
+
+### Search Console and local-relevance preparation
+
+- Preserved v0.11.9-s as the approved production source and created a separate review candidate.
+- Updated the approved homepage, How We Help and About metadata for accurate Norwich and Norfolk relevance.
+- Removed the obsolete homepage keywords field, which contained legacy agency-positioning terms and is not used by modern Google Search.
+- Added one restrained Norwich and Norfolk sentence to the homepage About Michael content without changing the hero or service proposition.
+- Added one authoritative homepage `Organization` entity using the verified production domain and logo URL, with no address, ratings or unverified social profiles.
+- Updated generated Insight `publisher` references to point to that authoritative organisation `@id` rather than declaring separate organisation entities.
+- Validated the existing `www` canonicals, public-page sitemap and robots reference; genuinely changed page `lastmod` dates already matched the 2026-07-22 release date.
+- Added owner-managed setup guidance for Google Search Console and an eligibility-gated Google Business Profile, plus a separate future Analytics decision note.
+- Confirmed that Google Analytics, Google Tag Manager, tracking IDs, consent tooling and analytics or advertising cookies were not added.
+- Kept the preparation-only Google Business Profile assets out of the Vercel deployment and public sitemap.
+
 ## v0.11.9-s - 2026-07-22
 
 ### Clean public URLs

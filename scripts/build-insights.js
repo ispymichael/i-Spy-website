@@ -68,7 +68,7 @@ function footer() {
 <a class="download-btn footer-cta" href="mailto:michael@i-spy.uk?subject=Arrange%20a%20call">Arrange a call</a>
 <address class="footer-contact-primary"><a href="tel:+447590410269">+44 (0) 7590 410 269</a><a href="mailto:michael@i-spy.uk">michael@i-spy.uk</a><a href="https://wa.me/447590410269" target="_blank" rel="noopener noreferrer" aria-label="Contact Michael through WhatsApp (opens in a new tab)">WhatsApp</a></address>
 <div class="footer-brand"><a class="site-wordmark site-wordmark--footer" href="/"><img src="/assets/ispy-logo-footer-white.svg" alt="i-Spy home" width="618" height="179"></a></div>
-<div class="footer-meta"><p class="footer-copyright">© i-Spy 2026</p><nav class="footer-legal-nav" aria-label="Policies"><a href="/privacy-notice">Privacy notice</a><a href="/sustainability">Sustainability</a><a href="/ai-use-policy">AI use policy</a></nav></div>
+<div class="footer-meta"><p class="footer-copyright">© i-Spy 2026</p><nav class="footer-legal-nav" aria-label="Policies"><a href="/privacy-notice">Privacy notice</a><a href="/sustainability">Sustainability</a><a href="/ai-use-policy">AI use policy</a></nav><a class="footer-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
 <p class="footer-company-disclosure">i-Spy is a trading name of I Spy With My Little Eye Ltd, registered in England and Wales. Company number 16767948.</p>
 </div></div></footer><script src="/shared-chrome.js?v=20260722"></script><script src="/script.js?v=20260722"></script><script src="/insights.js?v=20260722"></script>`;
 }
@@ -98,7 +98,7 @@ function documentShell({ title, description, canonical, type = "website", jsonLd
 <link rel="stylesheet" href="/insights.css?v=20260722b">
 ${jsonLd}
 </head>
-<body class="insights-page">
+<body id="top" class="insights-page">
 ${body}
 </body>
 </html>
@@ -208,7 +208,7 @@ function articlePage(article) {
     datePublished: article.publicationDate,
     dateModified: article.modifiedDate,
     mainEntityOfPage: `${siteUrl}/insights/${article.slug}/`,
-    publisher: { "@type": "Organization", name: "i-Spy", url: siteUrl },
+    publisher: { "@id": `${siteUrl}/#organization` },
     keywords: article.tags.join(", ")
   };
   if (leadImage) schema.image = `${siteUrl}${leadImage.src}`;

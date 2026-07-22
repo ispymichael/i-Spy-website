@@ -27,20 +27,6 @@
   margin-inline: 0;
 }
 
-.insights-hero h1 {
-  margin: 0 0 var(--space-lg);
-  font-size: clamp(2.8rem, 8vw, 6rem);
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
-}
-
-.insights-hero p:last-child {
-  max-width: 44rem;
-  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
-  line-height: 1.45;
-}
-
 .insights-listing {
   padding: var(--space-3xl) 0 var(--space-4xl);
 }

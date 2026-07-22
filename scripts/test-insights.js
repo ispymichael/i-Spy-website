@@ -47,12 +47,16 @@ check(listing.includes('https://wa.me/447590410269'), "Insights footer includes 
 check(listing.includes('/assets/ispy-logo-footer-white.svg'), "Insights footer uses the approved white wordmark asset");
 check(listing.includes('aria-label="Policies"'), "Insights footer includes the approved policy navigation");
 check(listing.includes('Company number 16767948.'), "Insights footer includes the approved company disclosure");
+check(listing.includes('<body id="top" class="insights-page">'), "Insights index exposes one valid top target");
+check(listing.includes('<a class="footer-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>'), "Insights footer includes the accessible Back to top control");
 check(listing.indexOf('/concept-one-completion.css') < listing.indexOf('/insights.css'), "Insights refinements load after the approved main-site design layers");
 check(insightsCss.includes('--insights-accent-rule: 1px'), "Insights use the main-site fine-rule weight");
 check(!insightsCss.match(/border-(?:top|left):\s*0\.(?:3|35)rem\s+solid\s+var\(--pink\)/), "Insights contain no legacy heavy pink rules");
 check(insightsCss.match(/\.insights-page\s*{[\s\S]*?padding-top:\s*0;/), "Insights share the main-site header flow without legacy body offset");
 check(insightsCss.match(/\.insight-card-image--contain\s*{[\s\S]*?width:\s*100%;/), "contained listing images cannot force mobile overflow");
 check(insightsCss.match(/\.insights-hero \.editorial-width\s*{[\s\S]*?max-width:\s*67rem;[\s\S]*?margin-inline:\s*0;/), "Insights listing header uses the approved internal-page width and alignment");
+check(!insightsCss.match(/\.insights-hero h1\s*{/), "Insights title inherits the shared secondary-page typography");
+check(!insightsCss.match(/\.insights-hero p:last-child\s*{/), "Insights supporting copy inherits the shared secondary-page typography");
 check(insightsCss.match(/\.insight-card\.insight-card--type \.card-title a,[\s\S]*?\.related-card\.related-card--type h3 a\s*{[\s\S]*?color:\s*var\(--white\);[\s\S]*?transition:\s*color 180ms ease;/), "headlines remain visible and transition cleanly on navy Insight cards");
 check(insightsCss.match(/\.insight-card\.insight-card--type \.insight-link,[\s\S]*?\.related-card\.related-card--type \.insight-link\s*{[\s\S]*?color:\s*var\(--white\);/), "Read insight links remain visible on navy cards");
 check(insightsCss.match(/\.insight-card\.insight-card--type \.card-title a:focus-visible,[\s\S]*?color:\s*var\(--pink\);/), "text-only Insight headlines turn magenta on keyboard focus");
@@ -77,6 +81,8 @@ insights.forEach((article) => {
   const factCount = (html.match(/<aside class="did-you-know"[\s\S]*?<\/aside>/)?.[0].match(/<li>/g) || []).length;
 
   check(html.includes(`>${article.title}</h1>`), `${article.slug} has its title`);
+  check((html.match(/id="top"/g) || []).length === 1, `${article.slug} exposes one valid top target`);
+  check(html.includes('<a class="footer-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>'), `${article.slug} includes the accessible Back to top control`);
   check(html.includes(article.standfirst), `${article.slug} has its standfirst`);
   check(html.includes(article.readingTime), `${article.slug} has its recalculated reading time`);
   check(html.includes(`href="https://www.i-spy.uk/insights/${article.slug}/"`), `${article.slug} has its canonical URL`);

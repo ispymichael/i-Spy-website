@@ -22,4 +22,5 @@
 @media (max-width: 48rem) { .faqs-page { padding-top: 4.5rem; } .faq-hero, .faq-section { padding: var(--space-2xl) 0; } }
 .faq-crosslink { margin-top: var(--space-2xl); padding: clamp(1.5rem, 4vw, 2.5rem); background: #f7f6f4; border-top: .35rem solid var(--pink); }
 .faq-crosslink h2 { margin: 0 0 var(--space-md); font-size: clamp(1.8rem, 4vw, 2.7rem); }
-.faq-crosslink p { max-width: 43rem; line-height: 1.6; }
+.faq-crosslink > p { max-width: 43rem; margin: 0; line-height: 1.6; }
+.faq-crosslink > .download-btn { display: inline-block; margin-block: clamp(1.25rem, 2vw, 1.75rem); }

@@ -415,6 +415,10 @@
   --logo-optical-scale: 1.08;
 }
 
+.partner-logo--mcalpine {
+  --logo-optical-scale: 0.92;
+}
+
 .partner-logo--nbid {
   --logo-optical-scale: 1.24;
 }
@@ -466,6 +470,10 @@
 
   .partner-logo--nesta {
     --logo-optical-scale: 1.13;
+  }
+
+  .partner-logo--mcalpine {
+    --logo-optical-scale: 0.88;
   }
 
   .partner-logo--nbid {
