@@ -1,5 +1,14 @@
 # i-Spy website changelog
 
+## v0.11.9-ac - 2026-07-23
+
+- Replaced the four approved homepage description fields with the exact new Norwich brand consultancy wording: the HTML description, Open Graph description, Twitter description and Organization structured-data description.
+- Created a dedicated favicon master from the approved magenta orb artwork, increasing its canvas occupancy to 95% without changing the source orb’s colour, proportions or white circular detail.
+- Added stable root-level ICO, SVG, 32px, 48px, 96px and 180px Apple touch icon assets and applied one consistent favicon declaration set across every public page and the Insights generator.
+- Added light- and dark-context before-and-after favicon comparisons for review.
+- Confirmed the live master orb artwork remains untouched. No web-app manifest existed, so no manifest or 192px/512px application icons were added.
+- Approved by Michael and promoted to public production on 23 July 2026.
+
 ## v0.11.9-ab - 2026-07-23
 
 - Replaced the shared footer heading with “Ready to chat?” across every public page and the reusable Insights generator.

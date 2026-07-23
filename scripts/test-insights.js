@@ -63,6 +63,13 @@ check(insightsCss.match(/\.insight-card\.insight-card--type \.insight-link,[\s\S
 check(insightsCss.match(/\.insight-card\.insight-card--type \.card-title a:focus-visible,[\s\S]*?color:\s*var\(--pink\);/), "text-only Insight headlines turn magenta on keyboard focus");
 check(insightsCss.match(/\.insight-card\.insight-card--type:hover \.card-title a,[\s\S]*?color:\s*var\(--pink\);/), "text-only Insight headlines turn magenta on hover");
 check(siteScript.includes('orb.src = "/assets/ispy-orb-live-master.svg"'), "sticky-header orb uses a root-safe asset path on nested Insight routes");
+check(listing.includes('<link rel="icon" href="/favicon.ico" sizes="any">'), "Insights expose the stable ICO favicon URL");
+check(listing.includes('<link rel="icon" type="image/svg+xml" href="/favicon.svg">'), "Insights expose the dedicated SVG favicon URL");
+check(listing.includes('<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">'), "Insights expose the 48px favicon URL");
+check(listing.includes('<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">'), "Insights expose the 96px favicon URL");
+check(listing.includes('<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">'), "Insights expose the stable Apple touch icon URL");
+check(!listing.match(/(?:favicon|apple-touch-icon)[^"\n]*\?v=/), "Insights favicon declarations contain no cache-busting query strings");
+check(!listing.match(/rel="icon"[^>]+ispy-orb-live-master/), "Insights do not use the live artwork as the favicon source");
 
 const firstCard = listing.match(/<article class="insight-card[\s\S]*?<\/article>/)?.[0] || "";
 check(firstCard.includes("levis-stadium-covered.jpg"), "leading listing card contains the intended Levi’s image");
