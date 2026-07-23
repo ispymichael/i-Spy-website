@@ -41,7 +41,7 @@ check(!listing.match(/\bBy (i-Spy|Michael Skipper)\b/i), "listing has no authors
 check(!contentSource.includes("sources:"), "public article data contains no source lists");
 check(generatorSource.includes("article.didYouKnow.length < 1 || article.didYouKnow.length > 3"), "Did You Know validation supports one to three facts");
 check(listing.includes('/assets/ispy-logo-header-navy.svg'), "Insights use the approved main-site header wordmark");
-check(listing.includes('<h2 class="footer-tagline">Fancy a chat?</h2>'), "Insights use the approved main-site footer proposition");
+check(listing.includes('<h2 class="footer-tagline">Ready to chat?</h2>'), "Insights use the approved main-site footer proposition");
 check(listing.includes('footer-contact-primary'), "Insights use the approved contact-first footer hierarchy");
 check(listing.includes('https://wa.me/447590410269'), "Insights footer includes the approved WhatsApp contact");
 check(listing.includes('/assets/ispy-logo-footer-white.svg'), "Insights footer uses the approved white wordmark asset");
@@ -49,6 +49,7 @@ check(listing.includes('aria-label="Policies"'), "Insights footer includes the a
 check(listing.includes('Company number 16767948.'), "Insights footer includes the approved company disclosure");
 check(listing.includes('<body id="top" class="insights-page">'), "Insights index exposes one valid top target");
 check(listing.includes('<a class="footer-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>'), "Insights footer includes the accessible Back to top control");
+check((listing.match(/class="footer-back-to-top"/g) || []).length === 1, "Insights footer contains one Back to top control");
 check(listing.indexOf('/concept-one-completion.css') < listing.indexOf('/insights.css'), "Insights refinements load after the approved main-site design layers");
 check(insightsCss.includes('--insights-accent-rule: 1px'), "Insights use the main-site fine-rule weight");
 check(!insightsCss.match(/border-(?:top|left):\s*0\.(?:3|35)rem\s+solid\s+var\(--pink\)/), "Insights contain no legacy heavy pink rules");
@@ -83,6 +84,7 @@ insights.forEach((article) => {
   check(html.includes(`>${article.title}</h1>`), `${article.slug} has its title`);
   check((html.match(/id="top"/g) || []).length === 1, `${article.slug} exposes one valid top target`);
   check(html.includes('<a class="footer-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>'), `${article.slug} includes the accessible Back to top control`);
+  check((html.match(/class="footer-back-to-top"/g) || []).length === 1, `${article.slug} contains one Back to top control`);
   check(html.includes(article.standfirst), `${article.slug} has its standfirst`);
   check(html.includes(article.readingTime), `${article.slug} has its recalculated reading time`);
   check(html.includes(`href="https://www.i-spy.uk/insights/${article.slug}/"`), `${article.slug} has its canonical URL`);

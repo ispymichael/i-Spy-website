@@ -368,6 +368,21 @@
   }
 }
 
+/* v0.11.9-ab: keep one semantic Back to top link in the approved mobile
+   source order, while positioning it beneath the primary CTA on desktop. */
+@media (min-width: 48.0625rem) {
+  .footer-content {
+    position: relative;
+  }
+
+  .footer-back-to-top {
+    position: absolute;
+    top: calc(3.1rem + 0.75rem);
+    right: 0;
+    margin-left: 0;
+  }
+}
+
 /* v0.11.9-e: optical logo normalisation.
    These values balance visible artwork rather than source-canvas dimensions. */
 .partner-logo--cr {

@@ -1,5 +1,14 @@
 # i-Spy website changelog
 
+## v0.11.9-ab - 2026-07-23
+
+- Replaced the shared footer heading with “Ready to chat?” across every public page and the reusable Insights generator.
+- Kept “Arrange a call”, its destination and styling unchanged.
+- Positioned the single existing Back to top control directly beneath the CTA on desktop, while preserving its approved source and visual position on mobile.
+- Added regression coverage confirming each generated Insights footer contains exactly one Back to top control.
+- Preserved all other copy, layout, navigation, metadata, contact details, interactions and responsive behaviour.
+- Approved by Michael and promoted to public production on 2026-07-23.
+
 ## v0.11.9-aa - 2026-07-22
 
 - Applied a restrained `-0.04em` optical left correction to the homepage hero headline so the visible “Define” and “Bring” letterforms align with the descriptor and supporting copy.
