@@ -1,5 +1,12 @@
 # i-Spy website changelog
 
+## v0.11.9-ag - 2026-07-23
+
+- Replaced Michael’s existing portrait with the approved studio photograph on the homepage and About page.
+- Added an optimised 1024 × 1536 JPEG prepared from the supplied PNG without retouching or altering the photograph.
+- Preserved the existing image frames, responsive crops, layout, copy, metadata and functionality.
+- Approved by Michael and promoted to public production on 23 July 2026.
+
 ## v0.11.9-ac - 2026-07-23
 
 - Replaced the four approved homepage description fields with the exact new Norwich brand consultancy wording: the HTML description, Open Graph description, Twitter description and Organization structured-data description.
