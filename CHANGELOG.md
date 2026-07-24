@@ -1,5 +1,12 @@
 # i-Spy website changelog
 
+## v0.11.9-ai - 2026-07-24
+
+- Replaced the earlier experimental portrait adjustment with a crop-only derivative of Michael’s exact uploaded photograph.
+- Removed excess space above Michael’s head and trimmed the lower portion of the image without extending, generating, recolouring or retouching it.
+- Applied the approved crop consistently to the homepage and About page.
+- Approved by Michael and promoted to public production on 24 July 2026.
+
 ## v0.11.9-ag - 2026-07-23
 
 - Replaced Michael’s existing portrait with the approved studio photograph on the homepage and About page.
