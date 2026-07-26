@@ -1,5 +1,14 @@
 # i-Spy website changelog
 
+## v0.11.9-aj - 2026-07-26
+
+- Simplified the homepage Working with i-Spy section by removing its five service summaries.
+- Added one “See how i-Spy can help” CTA linking to the complete How We Help page.
+- Reduced the homepage section height while preserving its approved heading, introduction and light visual treatment.
+- Added Jonathan Hook under Strategic thinking, David Godber under Commercial understanding and Marsid Greenidge under Partnership.
+- Increased the dedicated Testimonials page from 9 to 12 testimonials, with three testimonials in each existing category.
+- Prepared as a private review build. Public production remains on v0.11.9-ai pending Michael’s approval.
+
 ## v0.11.9-ai - 2026-07-24
 
 - Replaced the earlier experimental portrait adjustment with a crop-only derivative of Michael’s exact uploaded photograph.

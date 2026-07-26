@@ -141,23 +141,16 @@
   color: var(--navy);
 }
 
-#services .services-title,
-#services .offer-summary-card h3 {
+#services .services-title {
   color: var(--navy);
 }
 
-#services .services-introduction,
-#services .offer-summary-card p {
+#services .services-introduction {
   color: rgba(10, 25, 41, 0.82);
 }
 
 #services .section-label {
   color: var(--pink);
-}
-
-#services .offer-summary-card,
-#services .offer-summary-card:last-of-type {
-  border-color: rgba(255, 31, 164, 0.45);
 }
 
 #services .services-more .download-btn {
@@ -173,6 +166,19 @@
   color: var(--navy);
 }
 
+#services.services-section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+#services .services-introduction {
+  margin-bottom: 0;
+}
+
+#services .services-more {
+  margin-top: 1.75rem;
+}
+
 /* Slightly quieter contact typography; the approved 44px target remains. */
 .footer-contact-primary a {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
@@ -183,6 +189,13 @@
     grid-column: 1 / -1;
     justify-self: center;
     width: calc((100% - clamp(1rem, 2.5vw, 2rem)) / 2);
+  }
+}
+
+@media (max-width: 48rem) {
+  #services.services-section {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
   }
 }
 
